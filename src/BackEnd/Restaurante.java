@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class Restaurante {
     String nomeRestaurante;
     String localizacao;
-    public ArrayList<Lanche> cardapio = new ArrayList<>();
+    private ArrayList<Lanche> cardapio = new ArrayList<>();
+    private ArrayList<Pedidos> pedidos = new ArrayList<>();
 
     public Restaurante(String nomeRestaurante, String localizacao) {
         this.nomeRestaurante = nomeRestaurante;
@@ -26,6 +27,19 @@ public class Restaurante {
     @Override
     public int hashCode() {
         return Objects.hash(nomeRestaurante);
+    }
+
+    public String adicionarCarrinho(Restaurante restaurante, Usuario usuario, Lanche lanche) {
+        pedidos.add(new Pedidos(restaurante, usuario, lanche));
+        return "";
+    }
+
+    public ArrayList<Lanche> getCardapio() {
+        return cardapio;
+    }
+
+    public ArrayList<Pedidos> getPedido() {
+        return pedidos;
     }
 
     public String adicionarLancheCardapio(Lanche lanche) {

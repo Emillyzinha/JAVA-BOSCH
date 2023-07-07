@@ -24,7 +24,7 @@ public class AplicativoCompleto extends JFrame {
     public AplicativoCompleto() {
 //        AdicionarLanche adicionarLanche = new AdicionarLanche();
         AdicionarRestaurantes adicionarRestaurantes = new AdicionarRestaurantes(listaRestaurantes, aplicativo, restauranteELanche);
-        TelaCadastro telaCadastro = new TelaCadastro(aplicativo);
+        TelaCadastro telaCadastro = new TelaCadastro(aplicativo, restauranteELanche);
         janela  = new Janela("Tela Inicial", "src/Imagens/TelaPrincipal.png");
 
         Botao botaoAdicionarRestaurante = new Botao(70, 522);

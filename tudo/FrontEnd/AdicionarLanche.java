@@ -40,7 +40,7 @@ public class AdicionarLanche extends JFrame {
         botaoVoltar.addActionListener(e -> janela.dispose());
         botaoVerRestaurantes.addActionListener(e -> {
             janela.dispose();
-            TelaCadastro telaCadastro = new TelaCadastro(aplicativo);
+            TelaCadastro telaCadastro = new TelaCadastro(aplicativo, restauranteELanche);
             telaCadastro.tornarVisivel();
         });
 
@@ -63,14 +63,14 @@ public class AdicionarLanche extends JFrame {
             restauranteELanche.put(restaurante, lanchess);
             for (ArrayList<Lanche> lanche1 : restauranteELanche.values()){
                 for (Lanche teste : lanche1){
-                    System.out.println("valores " + lanche1);
-                    System.out.println("valores dentro " + teste.nomeLanche);
+//                    System.out.println("valores " + lanche1);
+//                    System.out.println("valores dentro " + teste.nomeLanche);
                 }
             }
 
             restauranteELanche.values();
-            System.out.println("dicionário" + restauranteELanche);
-            System.out.println("tamanho" + restauranteELanche.size());
+//            System.out.println("dicionário" + restauranteELanche);
+//            System.out.println("tamanho" + restauranteELanche.size());
             campoNome.setText("");
             campoPreco.setText("");
 //            janela.dispose();

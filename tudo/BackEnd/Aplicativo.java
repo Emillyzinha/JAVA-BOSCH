@@ -10,6 +10,7 @@ public class Aplicativo {
 
     private ArrayList<Usuario> bdUsuario = new ArrayList<>();
     private ArrayList<Restaurante> bdRestaurante = new ArrayList<>();
+    Restaurante restaurante;
 
 //    Aplicativo(String nome, int CPF, String endereco) {
 //        this.nome = nome;
@@ -25,6 +26,21 @@ public class Aplicativo {
 
     public ArrayList<Restaurante> getBdRestaurante() {
         return bdRestaurante;
+    }
+
+    public int tamanho() {
+        return bdRestaurante.size();
+    }
+
+    public ArrayList<String> nomeRestaurante() {
+        ArrayList<String> nomes = new ArrayList<>();
+        for (Restaurante restaurante1 : bdRestaurante){
+            System.out.println("cara " + bdRestaurante.size());
+            System.out.println("vish " + restaurante1.nomeRestaurante);
+            nomes.add(restaurante1.nomeRestaurante);
+//            return nomes;
+        }
+        return nomes;
     }
 
     public boolean cadastrarCliente(String nome, int CPF, String endereco)  {
@@ -67,6 +83,8 @@ public class Aplicativo {
         if(!bdRestaurante.isEmpty()){
             for (Restaurante restauranteFor : bdRestaurante){
                 if (!Objects.equals(restauranteFor.nomeRestaurante, restaurante.nomeRestaurante)){
+                    this.restaurante = restaurante;
+//                    System.out.println("R " + restaurante.nomeRestaurante);
                     bdRestaurante.add(new Restaurante(restaurante.nomeRestaurante));
                     return true;
                 }else {

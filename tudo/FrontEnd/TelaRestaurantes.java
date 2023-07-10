@@ -21,26 +21,12 @@ public class TelaRestaurantes extends JFrame {
     JComboBox<String> comboBoxRestaurante;
 
     public TelaRestaurantes(Aplicativo aplicativo, Map<Restaurante, ArrayList<Lanche>> restauranteELanche) {
-//        ArrayList<Restaurante> oi = new ArrayList<>();
-//        AdicionarRestaurantes adicionarRestaurantes = new AdicionarRestaurantes(oi);
         this.restauranteELanche = restauranteELanche;
         this.aplicativo = aplicativo;
 
         janela.setVisible(true);
-//        adicionarRestaurantes.janela.setVisible(false);
         BotaoVoltar botaoVoltar = new BotaoVoltar();
         botaoVoltar.addActionListener(e -> telaAnterior());
-
-//        Label label = new Label("TESTE", 150);
-//        Label label2 = new Label("TESTE", 190);
-
-        for (ArrayList<Lanche> lanche1 : restauranteELanche.values()){
-            for (Lanche teste : lanche1){
-//                System.out.println("valores " + lanche1);
-//                System.out.println("valores dentro " + teste.nomeLanche);
-//                choices = new String[]{};
-            }
-        }
 
         comboBoxRestaurante = new JComboBox<>(new Vector<>(aplicativo.nomeRestaurante()));
         comboBoxRestaurante.setBounds(26, 150, 250, 40);
@@ -56,16 +42,12 @@ public class TelaRestaurantes extends JFrame {
     }
 
     private void escolherLanche() {
-        String teste = comboBoxRestaurante.getItemAt(comboBoxRestaurante.getSelectedIndex());
+        String restauranteEscolhido = comboBoxRestaurante.getItemAt(comboBoxRestaurante.getSelectedIndex());
 
-        ArrayList<Lanche> lanchesDoRestaurante = restauranteELanche.get(new Restaurante(teste));
+        ArrayList<Lanche> lanchesDoRestaurante = restauranteELanche.get(new Restaurante(restauranteEscolhido));
         TelaLanches telaLanches = new TelaLanches(aplicativo, lanchesDoRestaurante);
         telaLanches.tornarVisivel();
         janela.dispose();
-
-//        for (Lanche lanche : lanchesDoRestaurante){
-//            System.out.println("aqui o valor dentro " + lanche.nomeLanche);
-//        }
     }
 
     private void telaAnterior() {
@@ -73,5 +55,4 @@ public class TelaRestaurantes extends JFrame {
         janela.dispose();
         aplicativoCompleto.setVisible(true);
     }
-
 }

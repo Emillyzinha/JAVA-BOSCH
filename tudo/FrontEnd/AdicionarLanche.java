@@ -61,19 +61,10 @@ public class AdicionarLanche extends JFrame {
             lanchess.add(lanche);
 
             restauranteELanche.put(restaurante, lanchess);
-            for (ArrayList<Lanche> lanche1 : restauranteELanche.values()){
-                for (Lanche teste : lanche1){
-//                    System.out.println("valores " + lanche1);
-//                    System.out.println("valores dentro " + teste.nomeLanche);
-                }
-            }
 
             restauranteELanche.values();
-//            System.out.println("dicionário" + restauranteELanche);
-//            System.out.println("tamanho" + restauranteELanche.size());
             campoNome.setText("");
             campoPreco.setText("");
-//            janela.dispose();
         }else {
             JOptionPane.showMessageDialog(null, "Lanche já cadastrado", "HomeBurguer", JOptionPane.ERROR_MESSAGE);
         }

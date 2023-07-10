@@ -6,7 +6,9 @@ import Componentes.Botao;
 import Componentes.Janela;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Vector;
 
 public class TelaLanches {
@@ -25,19 +27,18 @@ public class TelaLanches {
         Botao botaoIrParaCarrinho = new Botao(70, 446);
         botaoIrParaCarrinho.addActionListener(e -> irParaCarrinho());
 
+        JCheckBox checkBoxTeste = new JCheckBox();
+        int y = 180;
         for (Lanche lanche : lanches){
             String lancheEPreco = lanche.nomeLanche + " - R$" + lanche.precoLanche;
             todosLanches.add(lancheEPreco);
-            System.out.println("todos os lanches aqui " + lanche.nomeLanche);
+            checkBoxTeste = new JCheckBox(lancheEPreco);
+            janela.add(checkBoxTeste);
+
+            checkBoxTeste.setBounds(26, y, 280, 40);
+
+            y += 50;
         }
-
-        comboBoxLanches = new JComboBox<>(new Vector<>(todosLanches));
-        comboBoxLanches.setBounds(26, 150, 250, 40);
-
-        
-
-        comboBoxLanches.setVisible(true);
-        janela.add(comboBoxLanches);
     }
 
     public void tornarVisivel() {

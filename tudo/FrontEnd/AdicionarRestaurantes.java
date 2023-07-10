@@ -15,21 +15,12 @@ import java.util.Map;
 public class AdicionarRestaurantes extends JFrame {
 
     CampoTexto campoNome;
-
     Aplicativo aplicativo;
     ArrayList<Restaurante> listaRestaurantes;
     Map<Restaurante, ArrayList<Lanche>> restauranteELanche;
-//    private final Janela janela = new Janela("Adicionar Restaurantes", "src/Imagens/TelaCadastroRestaurante.png");
+    Janela janela = new Janela("Adicionar Restaurantas", "src/Imagens/TelaCadastroRestaurante.png");
     public AdicionarRestaurantes(ArrayList<Restaurante> listaRestaurantes, Aplicativo aplicativo, Map<Restaurante, ArrayList<Lanche>> restauranteELanche) {
         this.restauranteELanche = restauranteELanche;
-
-        setTitle("Adicionar Restaurantes");
-        setSize(390, 880);
-        setLocation(690, 100);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(null);
-
-        setContentPane(new JLabel(new ImageIcon("src/Imagens/TelaCadastroRestaurante.png")));
 
         this.listaRestaurantes = listaRestaurantes;
         this.aplicativo = aplicativo;
@@ -42,10 +33,14 @@ public class AdicionarRestaurantes extends JFrame {
 
         botaoCadastrar.addActionListener(e -> cadastrarRestaurante());
 
-        add(botaoVoltar);
-        add(botaoCadastrar);
-        add(campoNome);
-        add(campoNome);
+        janela.add(botaoVoltar);
+        janela.add(botaoCadastrar);
+        janela.add(campoNome);
+        janela.add(campoNome);
+    }
+
+    public void tornarVisivel() {
+        janela.setVisible(true);
     }
 
     private void cadastrarRestaurante() {
@@ -58,13 +53,8 @@ public class AdicionarRestaurantes extends JFrame {
             adicionarLanche.tornarVisivel();
             listaRestaurantes.add(restaurante);
             JOptionPane.showMessageDialog(null, "Restaurante cadastrado com sucesso!");
-//                TelaRestaurantes telaRestaurantes = new TelaRestaurantes(aplicativo);
-//                telaRestaurantes.setVisible(true);
-
         }else {
             JOptionPane.showMessageDialog(null, "Restaurante já cadastrado", "HomeBurguer", JOptionPane.ERROR_MESSAGE);
         }
-        System.out.println(listaRestaurantes);
-        System.out.println(listaRestaurantes.size());
     }
 }
